@@ -1,6 +1,10 @@
-/* Рассчитайте количество зарегистрированных объектов в 
-теннисном клубе, стоимость аренды гостя в котором не менее 10. */
+
+/* Рассчитайте для каждого члена количество рекомендаций, 
+данных этим членом клуба, искючив членов, которые не давали 
+рекомендаций. */
 
 USE cd;
-SELECT COUNT (DISTINCT facility) 
-FROM facilities WHERE facilities.guestcost > 10;
+
+SELECT m1.memid AS "memid", m1.firstname AS "name", m1.surname AS "surname", COUNT(m2.memid) AS "recommended" 
+FROM members m1 JOIN members m2 ON m1.memid = m2.recommendedby GROUP BY m1.memid, m1.firstname, m1.surname
+
