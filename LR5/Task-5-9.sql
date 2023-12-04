@@ -8,8 +8,8 @@ USE cd;
 
 SELECT facility, SUM(
 
-CASE WHEN 
-    bookings.memid = 0 THEN facilities.guestcost
+CASE WHEN bookings.memid = 0 THEN
+    facilities.guestcost
 ELSE
     facilities.membercost
 END) AS "total revenue"

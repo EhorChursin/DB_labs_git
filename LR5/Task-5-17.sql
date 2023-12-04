@@ -14,8 +14,8 @@ END AS "group"
 
 FROM 
 
-(SELECT facilities.facility, 
-  
+(SELECT 
+    facilities.facility, 
     SUM(IF(bookings.memid = 0, facilities.guestcost * bookings.slots, facilities.membercost * bookings.slots)) AS revenue,
     NTILE(3) OVER (ORDER BY SUM(IF(bookings.memid = 0, facilities.guestcost * bookings.slots, facilities.membercost * bookings.slots))) AS incomegroup
   

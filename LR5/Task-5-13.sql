@@ -6,6 +6,6 @@
 
 USE cd;
 
-SELECT ROW_NUMBER() OVER (ORDER BY joindate) AS ParticipantNumber, memid, firstname, surname
+SELECT ROW_NUMBER() OVER (ORDER BY joindate) AS JoinNumber, memid, firstname, surname
 FROM members
-ORDER BY ParticipantNumber;
+ORDER BY JoinNumber;
