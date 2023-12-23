@@ -1,0 +1,13 @@
+USE library;
+
+ALTER TABLE Books
+DROP FOREIGN KEY books_ibfk_1;
+
+ALTER TABLE Books
+DROP COLUMN AuthorID;
+
+ALTER TABLE Books
+ADD COLUMN AuthorID INT;
+
+ALTER TABLE Books
+ADD FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID);
